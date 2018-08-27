@@ -72,13 +72,9 @@ class TicTacToeREPL {
 			game.submitMove(move);
 
 			let winner = game.checkWin(game.boardArray);
-			if(winner) {
+			if(winner || game.remainingMoves.length === 0) {
 				game.gameOver = true;
 				game.winner = winner;
-				break;
-			}
-			if(game.remainingMoves.length === 0) {
-				game.gameOver = true;
 				break;
 			}
 
@@ -269,7 +265,7 @@ class TicTacToe {
 		sum = 0;
 
 		//Find sum of lower-left to upper-right diagonal
-		for(let i = this.boardLength - 1; i < boardArray.length; i = i + this.boardLength - 1) {
+		for(let i = this.boardLength - 1; i <= boardArray.length - this.boardLength; i = i + this.boardLength - 1) {
 			sum += boardArray[i];
 		}
 		if(sum === this.boardLength) {
@@ -295,14 +291,17 @@ async function main() {
 		rl.question("Is the computer playing??! (y/n): ", async (response) => {
 
 			rl.close();
+
 			num = parseInt(num, 10);
 
+			//num !== num checks if num is NaN
 			if(
-				typeof num !== 'number' ||
-				response !== 'y'		&& 
+				num !== num 		||
+				response !== 'y'	&& 
 				response !== 'n'
 			) 
 			{
+				console.log('You did it wrong.');
 				rl.close();
 				return;
 			}
