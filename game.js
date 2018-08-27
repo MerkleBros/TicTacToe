@@ -1,6 +1,10 @@
 /*  
 	Tic Tac Toe Game
 
+	Get NodeJS: https://nodejs.org/en/download/package-manager/
+	Run tests: npm test
+	Run game: node game.js
+	
  	Build a Tic Tac Toe game where two humans can play a game in the terminal
  	Game should report the outcome of the game
 
