@@ -1,0 +1,6 @@
+{
+  "name": "TicTacToe",
+  "scripts": {
+    "test": "jest"
+  }
+}
