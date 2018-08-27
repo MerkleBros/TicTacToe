@@ -301,7 +301,7 @@ async function main() {
 				response !== 'n'
 			) 
 			{
-				console.log('You did it wrong.');
+				console.log('Enter a number for board length and y/n for computer playing.');
 				rl.close();
 				return;
 			}
